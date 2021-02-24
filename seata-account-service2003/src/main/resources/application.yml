@@ -1,0 +1,60 @@
+server:
+  port: 2003
+
+spring:
+  application:
+    name: seata-account-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/seata_account?serverTimezone=GMT%2B8
+    username: root
+    password: root
+
+#seata:
+#  enabled: true
+#  enable-auto-data-source-proxy: true
+#  tx-service-group: my_test_tx_group
+#  registry:
+#    type: nacos
+#    nacos:
+#      application: seata-server
+#      server-addr: localhost:8848
+#      username: nacos
+#      password: nacos
+#  config:
+#    type: nacos
+#    nacos:
+#      group: SEATA_GROUP
+#      server-addr: localhost:8848
+#      username: nacos
+#      password: nacos
+#      namespace: d291ef46-3276-44d0-ac4a-00ad7236414e
+#  service:
+#    vgroup-mapping:
+#      my_test_tx_group: default
+#    disable-global-transaction: false
+#  client:
+#    rm:
+#      report-success-enable: false
+
+feign:
+  hystrix:
+    enabled: false
+
+
+logging:
+  level:
+    io:
+      seata: info
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+
+

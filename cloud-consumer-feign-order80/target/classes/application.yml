@@ -1,0 +1,13 @@
+server:
+  port: 3000
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eurekaa:7001/eureka/,http://eurekab:7002/eureka/ # 入驻地址
+
+logging:
+  level:
+    # feign日志以什么级别监控哪个接口
+    com.atguigui.springcloud.service.PaymentFeignService: debug
